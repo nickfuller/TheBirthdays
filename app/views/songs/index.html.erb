@@ -1,0 +1,12 @@
+<h1>Songs</h1>
+<ul>
+  <% @songs.each do |song| %>
+  <li><%= song.title %> | 
+    <%= link_to "Edit", edit_song_url(song.id) %> | 
+    <%= link_to "Delete", destroy_song_url(song.id), :method => :delete %>
+  </li>
+  <% end %>
+  <li>
+    <%= link_to "New", new_song_url %>
+  </li>
+</ul>

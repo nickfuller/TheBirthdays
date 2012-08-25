@@ -1,0 +1,10 @@
+<h1>Upload New Song Here</h1>
+
+<ul>
+  <%= form_tag(songs_url) do %>
+  <li>
+    <%= label_tag :title, "The new song's title is:" %> |
+    <%= text_field_tag :title %>
+  </li>
+  <% end %>
+</ul>
