@@ -53,6 +53,7 @@ class SongsController < ApplicationController
 	
 	def destroy
 		Songs.find_by_id(params[:id]).destroy
+		flash[:destroy_success] = "SONG SUCCESSFULLY DELETED"
 		redirect_to songs_url
 	end
 
