@@ -1,12 +1,21 @@
-<h1>Songs</h1>
+<h1>Tunes</h1>
+
+<%= flash[:upload_success] %>
+<%= flash[:update_success] %>
+
+<p>
+  Please enjoy streaming the following songs for free!
+</p>
+
 <ul>
   <% @songs.each do |song| %>
-  <li><%= song.title %> | 
+  <li>
+    <a href=<%= song_url(song.id) %>><%= song.title %></a> | 
+    Play | 
     <%= link_to "Edit", edit_song_url(song.id) %> | 
     <%= link_to "Delete", destroy_song_url(song.id), :method => :delete %>
   </li>
   <% end %>
-  <li>
-    <%= link_to "New", new_song_url %>
-  </li>
 </ul>
+
+<p><%= link_to "New", new_song_url %></p>

@@ -1,0 +1,17 @@
+<h1>Shows</h1>
+
+<ul>
+  <% @gigs.each do |gig| %>
+  <li>
+    <%= gig.date %> | <a href=<%= gig_url(gig.id) %>>"<%= gig.venue %>"</a> | 
+    <%= link_to "Edit", edit_gig_url(gig.id) %> | 
+    <%= link_to "Delete", destroy_gig_url(gig.id), :method => :delete %>
+  </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "New", new_gig_url %></p>
+
+<h1>Upcoming Shows</h1>
+
+<h1>Past Shows</h1>

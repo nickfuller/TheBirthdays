@@ -1,0 +1,21 @@
+<h1>Add a Gig Here</h1>
+
+<ul>
+  <%= form_tag ("http://localhost:3000/performances") do %>
+    <li>
+      <%= label_tag :date, "Enter date:" %>
+      <%= text_field_tag :date %>
+    </li>
+    <li>
+      <%= label_tag :venue, "Enter name of venue:" %>
+      <%= text_field_tag :venue %>
+    </li>
+    <li>
+      <%= label_tag :cost, "Cover charge:" %>
+      <%= text_field_tag :cost %>
+    </li>
+    <li>
+      <%= submit_tag :submit, "Submit" %>
+    </li>
+
+</ul>
