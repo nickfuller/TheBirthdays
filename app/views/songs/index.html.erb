@@ -3,19 +3,20 @@
 <%= flash[:upload_success] %>
 <%= flash[:update_success] %>
 <%= flash[:destroy_success] %>
-<p>
-  Please enjoy streaming the following songs for free!
-</p>
 
-<ul>
+<table>
+  <caption>Enjoy streaming these songs by The Birthdays for free!</caption>
   <% @songs.each do |song| %>
-  <li>
-    <a href=<%= song_url(song.id) %>><%= song.title %></a> | 
-    Play | 
-    <%= link_to "Edit", edit_song_url(song.id) %> | 
-    <%= link_to "Delete", destroy_song_url(song.id), :method => :delete %>
-  </li>
+  <tr>
+    <td><%= link_to song.title, song_url(song.id) %></td>
+    <td>PLAY</td> 
+    <td><%= link_to "Edit", edit_song_url(song.id) %></td>
+    <td><%= link_to "Delete", destroy_song_url(song.id), :method => :delete %></td>
+    </td>
+  </tr>
   <% end %>
-</ul>
+</table>
 
-<p><%= link_to "New", new_song_url %></p>
+<p>
+  <%= link_to "New", new_song_url %>
+</p>

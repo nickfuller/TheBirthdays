@@ -1,0 +1,26 @@
+<h1>This page is for making changes to a particular concert.</h1>
+
+<table>
+  <%= form_tag(gig_url(@gig.id), :method => :put) do %>
+  <tr>
+    <td>
+      <%= label_tag :date, "Date: (YEAR-MO-DY-HR:MN)" %>
+      <%= text_field_tag :date, @gig.date %>
+    </td>
+    <td>
+      <%= label_tag :venue, "Venue:" %>
+      <%= text_field_tag :venue, @gig.venue %>
+    </td>
+    <td>
+      <%= label_tag :cost, "$" %>
+      <%= text_field_tag :cost, @gig.cost %>
+    </td>
+    <td>
+      <%= submit_tag "Update Concert" %>
+  </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to "Concert Calendar", gigs_url %></p>
+</p>

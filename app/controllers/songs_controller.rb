@@ -5,7 +5,7 @@ class SongsController < ApplicationController
 				
 		respond_to do |format|
 		  format.html
-		  format.json { render :json => @lines }
+		  format.json { render :json => @songs }
 	  end
 	end
 	

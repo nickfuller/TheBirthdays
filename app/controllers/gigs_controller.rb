@@ -2,14 +2,21 @@ class GigsController < ApplicationController
 
   def index
     
-    @gigs = Gigs.all
-    @gig = Gigs.new
-      # if DateTime.parse "#{@gig.date}" < DateTime.now
-      # else
-      
-    # @upcoming_gigs =
+    @past_gigs = Gigs.where("date < ?", DateTime.now).order('date desc')
+    @upcoming_gigs = Gigs.where("date > ?", DateTime.now).order('date asc')
     
-    # @past_gigs = 
+    respond_to do |format|
+		  format.html
+		  format.json { render :json => @gigs }
+	  end
+
+    
+    # require "date"
+    # if DateTime.parse "#{@gig.date}" < DateTime.now
+    #   ## put @gig in "past shows"
+    # else 
+    #   ## put @gig in "upcoming shows"
+    # end
   end
 
   def new
@@ -22,11 +29,22 @@ class GigsController < ApplicationController
     @gig.venue = params[:venue]
     @gig.cost = params[:cost]
     @gig.save
-    redirect_to gigs_url    
+    if @gig.save
+      flash[:gig_created] = "Gig at #{@gig.venue} created!"
+      redirect_to gigs_url 
+    end   
   end
   
   def show
     @gig = Gigs.find_by_id(params[:id])
+    # Q: Is it a better practice to seperate out the variables and go:
+    #    gig_id = params[:id]
+    #    @gig = Gigs.find_by_id(gig_id)
+    
+    respond_to do |format|
+		  format.html
+		  format.json { render :json => @gig }
+    end
   end
 
   def edit
@@ -45,7 +63,7 @@ class GigsController < ApplicationController
   def destroy
     Gigs.find_by_id(params[:id]).delete
     redirect_to gigs_url
-    flash[:deleted] = "That gig just got poned."    
+    flash[:gig_deleted] = "That gig just got poned."    
   end
 
 end

@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <td><%= @gig.date %></td>
+    <td><%= @gig.venue %></td>
+    <td>$<%= @gig.cost %></td>
+    <td><%= link_to "Edit", edit_gig_url(@gig.id) %>
+  </tr>
+</table>
+
+<p><%= link_to "Concert Calendar", gigs_url %></p>

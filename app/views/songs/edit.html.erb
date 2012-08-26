@@ -5,7 +5,7 @@
 <%= form_tag(song_url(@song.id), :method => :put) do %>
   <p>
     <%= label_tag :title, "Title:" %> 
-    <%= text_field_tag :title %>
+    <%= text_field_tag :title, @song.title %>
     <%= submit_tag "Submit" %>
   </p>
 <% end %>

@@ -1,17 +1,42 @@
-<h1>Shows</h1>
+<h1>Concert Calendar</h1>
 
-<ul>
-  <% @gigs.each do |gig| %>
-  <li>
-    <%= gig.date %> | <a href=<%= gig_url(gig.id) %>>"<%= gig.venue %>"</a> | 
-    <%= link_to "Edit", edit_gig_url(gig.id) %> | 
-    <%= link_to "Delete", destroy_gig_url(gig.id), :method => :delete %>
-  </li>
-  <% end %>
-</ul>
+<table>
+  <caption>UPCOMING SHOWS!</caption>
+    <tr>
+      <th scope="col">DATE</th>
+      <th scope="col">VENUE</th>
+      <th scope="col">COST</th>
+    </tr>
+    <% @upcoming_gigs.each do |gig| %>
+    <tr>
+      <td><%= link_to gig.date.strftime("%A, %B %e, %Y at %l:%M%P"), gig_url(gig.id) %></td> 
+      <td><%= gig.venue %></td>
+      <td>$<%= gig.cost %></td> 
+      <td><%= link_to "Edit", edit_gig_url(gig.id) %> | </td>
+      <td><%= link_to "Delete", destroy_gig_url(gig.id), :method => :delete %></td>
+      </td>
+    </tr>
+    <% end %>
+</table>
 
-<p><%= link_to "New", new_gig_url %></p>
+<table>
+  <caption>PAST SHOWS...</caption>
+    <tr>
+      <th scope="col">DATE</th>
+      <th scope="col">VENUE</th>
+      <th scope="col">COST</th>
+    </tr>
+    <% @past_gigs.each do |gig| %>
+    <tr>
+      <td><%= link_to gig.date.strftime("%B %e, %Y"), gig_url(gig.id) %></td> 
+      <td><%= gig.venue %></td>
+      <td>$<%= gig.cost %></td> 
+      <td><%= link_to "Edit", edit_gig_url(gig.id) %> | </td>
+      <td><%= link_to "Delete", destroy_gig_url(gig.id), :method => :delete %></td>
+      </td>
+    </tr>
+    <% end %>
+</table>
 
-<h1>Upcoming Shows</h1>
-
-<h1>Past Shows</h1>
+<p><%= link_to "New Concert", new_gig_url %></p>
+<p><%= link_to "Songs", songs_url %></p>
