@@ -1,0 +1,24 @@
+<h1>All Fans</h1>
+
+<p><%= link_to "Create Profile", new_fan_url %></p>
+
+<table>
+  <caption>ALL FANS</caption>
+    <thead>
+      <td>NAME</td>
+      <td>EMAIL</td>
+      <td>PASSWORD</td>
+    </thead>
+    <% @fans.each do |fan| %>
+    <tbody>
+      <tr>
+        <td><%= fan.name %></td>
+        <td><%= fan.email %></td>
+        <td><%= fan.password %></td>
+        <td><%= link_to "Edit", edit_fan_url(fan.id) %> | </td>
+        <td><%= link_to "Delete", destroy_fan_url(fan.id), :method => :delete %></td>
+      </tr>
+    </tbody>
+    <% end %>
+</table>
+

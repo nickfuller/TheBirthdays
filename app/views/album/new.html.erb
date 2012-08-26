@@ -1,0 +1,13 @@
+<h1>Create New Album Here</h1>
+
+<table>
+  <%= form_tag(albums_url, :method => :post) do %>
+  <tr>
+    <td><%= label_tag :title, "Title:" %></td>
+    <td><%= text_field_tag :title %></td> 
+    <td><%= label_tag :date, "Date:" %></td>
+    <td><%= text_field_tag :date %></td>  
+    <td><%= submit_tag "Submit" %></td>
+  </tr>
+  <% end %>
+</table>

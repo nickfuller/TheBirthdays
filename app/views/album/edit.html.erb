@@ -1,0 +1,16 @@
+<h1>Edit Album Here</h1>
+
+<table>
+  <%= form_tag(albums_url(@album.id), :method => :put) do %>
+  <tr>
+    <td><%= label_tag :title, "Title:" %></td>
+    <td><%= text_field_tag :title, @album.title %></td>
+    <td><%= label_tag :date, "Date:" %></td>
+    <td><%= text_field_tag :date, @album.date %></td>
+    <td><%= submit_tag "Submit" %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "Back to #{@album.title} Page", album_url(@album) %>
+<%= link_to "All Albums", albums_url %>

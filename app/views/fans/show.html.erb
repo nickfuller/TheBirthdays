@@ -1,0 +1,11 @@
+<h1>Your Profile</h1>
+
+<ul>
+  <li><%= @fan.name %></li>
+  <li><%= @fan.email %></li>
+  <li><%= @fan.password %></li>  
+</ul>
+
+<p><%= link_to "Edit", edit_fan_url(@fan.id) %></p>
+<p><%= link_to "Delete", destroy_fan_url(@fan.id), :method => :delete %></p>
+<p><%= link_to "All Fans", fans_url %></p>

@@ -1,11 +1,11 @@
 <h1>Tunes</h1>
+<p>Enjoy streaming these songs by The Birthdays for free!</p>
 
 <%= flash[:upload_success] %>
 <%= flash[:update_success] %>
 <%= flash[:destroy_success] %>
 
 <table>
-  <caption>Enjoy streaming these songs by The Birthdays for free!</caption>
   <% @songs.each do |song| %>
   <tr>
     <td><%= link_to song.title, song_url(song.id) %></td>

@@ -1,0 +1,26 @@
+<table>
+  <caption>Edit Your Profile Here</caption>
+    <%= form_tag fan_url(@fan.id), :method => :put do %>
+    <tr>
+      <td>
+        <%= label_tag :name, "Name:" %>
+        <%= text_field_tag :name, @fan.name %>
+      </td>
+      <td>
+        <%= label_tag :email, "Email address:" %>
+        <%= text_field_tag :email, @fan.email %>
+      </td>
+      <td>
+        <%= label_tag :password, "Choose a password:" %>
+        <%= text_field_tag :password, @fan.password %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= submit_tag "Submit" %>
+      </td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to "Back to Profile", fan_url(@fan.id) %>

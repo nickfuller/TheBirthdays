@@ -1,0 +1,24 @@
+<table>
+  <caption>Create Your Profile</caption>
+    <%= form_tag (fans_url) do %>
+    <tr>
+      <td>
+        <%= label_tag :name, "Name:" %>
+        <%= text_field_tag :name %>
+      </td>
+      <td>
+        <%= label_tag :email, "Email address:" %>
+        <%= text_field_tag :email %>
+      </td>
+      <td>
+        <%= label_tag :password, "Choose a password:" %>
+        <%= text_field_tag :password %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= submit_tag "Submit" %>
+      </td>
+    </tr>
+    <% end %>
+</table>

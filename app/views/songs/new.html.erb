@@ -1,12 +1,16 @@
 <h1>Upload Song Here</h1>
+
 <%= flash[:upload_fail] %>
-<p>
+
+<table>
   <%= form_tag(songs_url) do %>
-    <%= label_tag :title, "Title:" %> 
-    <%= text_field_tag :title %>
-    <%= submit_tag "Submit" %>
+  <tr>
+    <td><%= label_tag :title, "Title:" %></td>
+    <td><%= text_field_tag :title %></td>  
+    <td><%= submit_tag "Submit" %></td>
+  </tr>
   <% end %>
-</p>
+</table>
 
 <p>
   <%= link_to "All Songs", songs_url %>

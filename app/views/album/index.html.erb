@@ -1,0 +1,13 @@
+<h1>Albums</h1>
+
+<p><%= link_to "Create New Album", new_album_url %></p>
+
+<ul>
+  <% @albums.each do |album| %>
+    <li>
+      <%= album.title %> | 
+      <%= link_to "Edit", edit_album_url(album.id) %> | 
+      <%= link_to "Delete", destroy_album_url(album.id), :method => :delete %>
+    </li>
+  <% end %>
+</ul> 
